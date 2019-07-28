@@ -6,7 +6,11 @@ import { Link } from 'react-router-dom'
 const Home = props => {
   const affiliateLink = child => {
     return (
-      <a href='/'>
+      <a
+        href='https://amzn.to/2yjJXVj'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
         <b>{child}</b>
       </a>
     )
