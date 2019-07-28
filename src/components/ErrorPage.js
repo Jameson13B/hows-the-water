@@ -1,0 +1,68 @@
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+
+const ErrorPage = props => {
+  return (
+    <Body>
+      <Cta>404</Cta>
+      <Message>Oops, it looks like you have swam into bad water.</Message>
+      <ButtonContainer>
+        <BackButton onClick={() => props.history.goBack()}>Go Back</BackButton>
+        <HomeLink to='/'>Go to Homepage</HomeLink>
+      </ButtonContainer>
+    </Body>
+  )
+}
+
+export default ErrorPage
+
+const Body = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%
+  margin-top: 12vh;
+  max-width: 550px;
+`
+const Cta = styled.h1`
+  font-size: 20em;
+  line-height: 100%;
+  margin: 15px 0 0;
+`
+const Message = styled.h1`
+  margin-top: 15px;
+`
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+`
+const HomeLink = styled(Link)`
+  background: #e9e9e9;
+  border: 1px solid #282c34;
+  border-radius: 10px;
+  color: #282c34;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 10px;
+  text-decoration: none;
+  width: 30%;
+  :hover {
+    background: lightgreen;
+  }
+`
+const BackButton = styled.button`
+  background: #e9e9e9;
+  border: 1px solid #282c34;
+  border-radius: 10px;
+  color: #282c34;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 10px;
+  text-decoration: none;
+  width: 30%;
+  :hover {
+    background: lightgreen;
+  }
+`
