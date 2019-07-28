@@ -35,7 +35,7 @@ const Home = props => {
         insight.
       </Paragraph>
       <NavBtnContainter>
-        <NavBtn to='/see'>See Others</NavBtn>
+        <NavBtn to='/see'>See Shares</NavBtn>
         <NavBtn to='/share'>Share Yours</NavBtn>
       </NavBtnContainter>
       <h3 style={{ margin: '16px 0' }}>Current Locations:</h3>
