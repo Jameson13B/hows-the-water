@@ -69,7 +69,7 @@ class Share extends Component {
           <input
             name='book'
             onChange={this.handleInputChange}
-            placeholder='Book - Alpha, Bravo, Charlie'
+            placeholder='Book - Alpha, Bravo, Charlie, Delta, Echo'
             value={this.state.book}
           />
           <textarea

@@ -41,10 +41,14 @@ class See extends Component {
           .map(share => {
             const tagColor =
               share.book === 'Alpha'
-                ? 'lightgreen'
+                ? '#440077'
                 : share.book === 'Bravo'
-                ? '#ee9a6f'
-                : 'deeppink'
+                ? '#b14bfa'
+                : share.book === 'Charlie'
+                ? '#24a302'
+                : share.book === 'Delta'
+                ? '#62e63e'
+                : '#9f8909'
             return (
               <div style={{ width: '100%' }} key={share.id}>
                 <Message>{share.message}</Message>
@@ -110,6 +114,7 @@ const Book = styled.p`
   background: ${props => props.color}}
   border: ${props => `1px solid ${props.color}`}
   border-radius: 15px;
+  color: white;
   font-size: .8em;
   font-weight: bold;
   padding: 1px 3px;

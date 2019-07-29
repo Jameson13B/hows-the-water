@@ -23,10 +23,10 @@ const Home = props => {
         myself I knew I wanted to share it with others. Share how I felt, some
         of my thoughts, and the book itself. After spending time telling others
         about the book and recommending it as much as possible, I came up with
-        the idea of How's the Water. I started by purchasing three hardcover
-        copies of the book <em>This is Water</em> (<em>Book Alpha</em>,{' '}
-        <em>Book Bravo</em>, and <em>Book Charlie</em>), wrote a message on the
-        inside of each, and created this website.
+        the idea of How's the Water. I started by purchasing five hardcover
+        copies of the book <em>This is Water</em> (<em>Alpha</em>,
+        <em> Bravo</em>,<em> Charlie</em>,<em> Delta</em>, and<em> Echo</em>
+        ), wrote a message on the inside of each, and created this website.
       </Paragraph>
       <Paragraph>
         Those three books were given to friends with simple instructions. Read
@@ -39,8 +39,8 @@ const Home = props => {
         insight.
       </Paragraph>
       <NavBtnContainter>
-        <NavBtn to='/see'>See Shares</NavBtn>
-        <NavBtn to='/share'>Share Yours</NavBtn>
+        <NavBtn to='/see'>Read Shares Here</NavBtn>
+        <NavBtn to='/share'>Share Yours Here</NavBtn>
       </NavBtnContainter>
       <h3 style={{ margin: '16px 0' }}>Current Locations:</h3>
       <LocBtnContainer>
@@ -52,6 +52,12 @@ const Home = props => {
         </LocationBtn>
         <LocationBtn to={{ pathname: '/see', state: { book: 'Charlie' } }}>
           Charlie: New York, NY
+        </LocationBtn>
+        <LocationBtn to={{ pathname: '/see', state: { book: 'Delta' } }}>
+          Delta: New York, NY
+        </LocationBtn>
+        <LocationBtn to={{ pathname: '/see', state: { book: 'Echo' } }}>
+          Echo: New York, NY
         </LocationBtn>
       </LocBtnContainer>
       <Paragraph>
@@ -109,7 +115,7 @@ const NavBtnContainter = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin: 20px 0;
-  max-width: 275px;
+  max-width: 500px;
   width: 100%;
 `
 const NavBtn = styled(Link)`
@@ -128,7 +134,8 @@ const NavBtn = styled(Link)`
 `
 const LocBtnContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   margin-bottom: 20px;
   max-width: 550px;
   width: 100%;
@@ -140,8 +147,10 @@ const LocationBtn = styled(Link)`
   color: #282c34;
   cursor: pointer;
   padding: 10px;
+  margin-top: 10px;
   text-decoration: none;
   transition: 0.3s;
+  width: 45%;
   :hover {
     background: lightgreen;
   }
