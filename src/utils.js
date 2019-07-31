@@ -4,6 +4,9 @@ import moment from 'moment'
 export const capitalize = string =>
   string.charAt(0).toUpperCase() + string.slice(1)
 
+export const lowercase = string =>
+  string.charAt(0).toLowerCase() + string.slice(1)
+
 export const getTagColor = book =>
   book === 'Alpha'
     ? '#440077'
