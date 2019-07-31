@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import moment from 'moment'
 import { db } from '../Firebase'
-import { capitalize } from '../utils'
+import {
+  capitalize,
+  getTagColor,
+  filterByBook,
+  formatDateString
+} from '../utils'
 
 class See extends Component {
   constructor(props) {
@@ -27,33 +31,21 @@ class See extends Component {
       this.setState({ shares, book: book })
     })
   }
-  filterByBook = (share, book) => {
-    if (book === 'all') return true
-    if (share.book === book) return true
-  }
   render() {
     const { book, shares } = this.state
     return (
       <Body>
         <h1>See {capitalize(book) || 'All'}</h1>
         {shares
-          .filter(share => this.filterByBook(share, book))
+          // filter by book if a book is selected
+          .filter(share => filterByBook(share, book))
           .sort((a, b) => b.date - a.date)
           .map(share => {
-            const tagColor =
-              share.book === 'Alpha'
-                ? '#440077'
-                : share.book === 'Bravo'
-                ? '#b14bfa'
-                : share.book === 'Charlie'
-                ? '#24a302'
-                : share.book === 'Delta'
-                ? '#62e63e'
-                : '#9f8909'
             return (
               <div style={{ width: '100%' }} key={share.id}>
                 <Message>{share.message}</Message>
                 <MessageInfo>
+                  {/* If the share has a URL, return link, else return p */}
                   {share.url ? (
                     <Who>
                       <a
@@ -72,12 +64,8 @@ class See extends Component {
                       </p>
                     </Who>
                   )}
-                  <Book color={tagColor}>{share.book}</Book>
-                  <Date>
-                    {moment(share.date)
-                      .format('MMMM Do YYYY')
-                      .toString()}
-                  </Date>
+                  <Book color={getTagColor(share.book)}>{share.book}</Book>
+                  <Date>{formatDateString(share.date, 'MMMM Do YYYY')}</Date>
                 </MessageInfo>
                 <hr style={{ borderColor: '#282c34', width: '400px' }} />
               </div>
