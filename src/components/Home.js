@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import howsTheWater from '../images/hows_the_water.png'
 import { Link } from 'react-router-dom'
+import { db } from '../Firebase'
+import { capitalize, personalSignature } from '../utils'
 
 const Home = props => {
+  const [locations, setLocations] = useState()
+
+  useEffect(() => {
+    db.collection('books').onSnapshot(
+      res => {
+        let locations = []
+        res.forEach(doc => {
+          let book = doc.data()
+          book.id = doc.id
+          locations.push(book)
+        })
+        setLocations(locations)
+      },
+      err => console.log(err)
+    )
+  }, [])
   const affiliateLink = child => {
     return (
       <a
@@ -19,13 +37,14 @@ const Home = props => {
     <Body>
       <Image src={howsTheWater} alt='hows the water comic' />
       <Paragraph>
-        <b>About the Site -</b> After reading {affiliateLink('This is Water')}{' '}
-        myself I knew I wanted to share it with others. Share how I felt, some
-        of my thoughts, and the book itself. After spending time telling others
-        about the book and recommending it as much as possible, I came up with
-        the idea of How's the Water. I started by purchasing five hardcover
-        copies of the book <em>This is Water</em> (<em>Alpha</em>,
-        <em> Bravo</em>,<em> Charlie</em>,<em> Delta</em>, and<em> Echo</em>
+        <b>About the Site -</b> After my first time reading{' '}
+        {affiliateLink('This is Water')}, I knew I wanted to share it with
+        others. Share how I felt, some of my thoughts, and the book itself.
+        After spending time telling others about the book and recommending it as
+        much as possible, I came up with the idea of How's the Water. I started
+        by purchasing five hardcover copies of the book <em>This is Water</em> (
+        <em>Alpha</em>,<em> Bravo</em>,<em> Charlie</em>,<em> Delta</em>, and
+        <em> Echo</em>
         ), wrote a message on the inside of each, and created this website.
       </Paragraph>
       <Paragraph>
@@ -44,21 +63,19 @@ const Home = props => {
       </NavBtnContainter>
       <h3 style={{ margin: '16px 0' }}>Current Locations:</h3>
       <LocBtnContainer>
-        <LocationBtn to={{ pathname: '/see', state: { book: 'Alpha' } }}>
-          Alpha: New York, NY
-        </LocationBtn>
-        <LocationBtn to={{ pathname: '/see', state: { book: 'Bravo' } }}>
-          Bravo: New York, NY
-        </LocationBtn>
-        <LocationBtn to={{ pathname: '/see', state: { book: 'Charlie' } }}>
-          Charlie: New York, NY
-        </LocationBtn>
-        <LocationBtn to={{ pathname: '/see', state: { book: 'Delta' } }}>
-          Delta: New York, NY
-        </LocationBtn>
-        <LocationBtn to={{ pathname: '/see', state: { book: 'Echo' } }}>
-          Echo: New York, NY
-        </LocationBtn>
+        {locations
+          ? locations.map(location => {
+              const book = location.id
+              return (
+                <LocationBtn
+                  key={book}
+                  to={{ pathname: '/see', state: { book: capitalize(book) } }}
+                >
+                  {capitalize(book)} : {location.current}
+                </LocationBtn>
+              )
+            })
+          : null}
       </LocBtnContainer>
       <Paragraph>
         <b>About the Book -</b> Only once did David Foster Wallace give a public
@@ -76,16 +93,7 @@ const Home = props => {
         challenges of daily living and offers advice that renews us with every
         reading.
       </Paragraph>
-      <p>
-        Made and Managed by{' '}
-        <a
-          href='https://www.jamesonb.com'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Jameson Brown
-        </a>
-      </p>
+      {personalSignature()}
     </Body>
   )
 }
