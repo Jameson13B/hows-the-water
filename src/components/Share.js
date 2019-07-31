@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { db, Timestamp } from '../Firebase'
+import { lowercase } from '../utils'
 
 class Share extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Share extends Component {
       name: '',
       location: '',
       book: '',
-      url: null,
+      url: '',
       error: null,
       buttonText: 'Send',
       buttonColor: '#e9e9e9'
@@ -30,6 +31,7 @@ class Share extends Component {
     if (error) return this.setState({ error })
     this.setState({ buttonText: 'Sending...', buttonColor: 'lightgreen' })
     db.collection('shares')
+      // Add new share
       .add(share)
       .then(() => {
         this.setState({
@@ -37,7 +39,17 @@ class Share extends Component {
           buttonColor: '#e9e9e9',
           error: null
         })
-        this.props.history.push('/see')
+        // Update books current location and history
+        const bookRef = db.collection('books').doc(lowercase(share.book))
+        return db
+          .runTransaction(transaction => {
+            return transaction.get(bookRef).then(doc => {
+              const history = doc.data().history
+              history.push(share.location)
+              transaction.update(bookRef, { history, current: share.location })
+            })
+          })
+          .catch(err => console.log(err))
       })
       .catch(error =>
         this.setState({
@@ -46,6 +58,7 @@ class Share extends Component {
           buttonColor: '#e9e9e9'
         })
       )
+    this.props.history.push('/see')
   }
 
   render() {
