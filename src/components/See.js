@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
 import { db } from '../Firebase'
+import { capitalize } from '../utils'
 
 class See extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class See extends Component {
     const { book, shares } = this.state
     return (
       <Body>
-        <h1>See {book.charAt(0).toUpperCase() + book.slice(1) || 'All'}</h1>
+        <h1>See {capitalize(book) || 'All'}</h1>
         {shares
           .filter(share => this.filterByBook(share, book))
           .sort((a, b) => b.date - a.date)
