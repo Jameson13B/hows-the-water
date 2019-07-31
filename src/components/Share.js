@@ -27,9 +27,7 @@ class Share extends Component {
   handleSendPost = (e, share) => {
     e.preventDefault()
     const error = this.validateForm()
-    if (error) {
-      return this.setState({ error })
-    }
+    if (error) return this.setState({ error })
     this.setState({ buttonText: 'Sending...', buttonColor: 'lightgreen' })
     db.collection('shares')
       .add(share)
