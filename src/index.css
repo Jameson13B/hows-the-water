@@ -6,7 +6,7 @@ body {
   height: 100%;
   min-height: 100vh;
   /* Animated Gradient Background */
-  background: linear-gradient(270deg, #abe2ff, #10abff);
+  background: linear-gradient(270deg, #9fddff, #10abff);
   /* color: #ee9a6f; */
   background-size: 400% 400%;
   -webkit-animation: AnimationName 17s ease infinite;
