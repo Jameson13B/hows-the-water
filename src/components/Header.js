@@ -67,7 +67,7 @@ const Title = styled(Link)`
     font-weight: 600;
   }
   @media (max-width: 768px) {
-    font-size: ${props => (props.small === 'true' ? '24px' : '48px')};
+    font-size: ${props => (props.small === 'true' ? '24px' : '45px')};
   }
   @media (max-width: 400px) {
     font-size: ${props => (props.small === 'true' ? '24px' : '36px')};

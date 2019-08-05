@@ -104,9 +104,12 @@ class Share extends Component {
           <input
             name='url'
             onChange={this.handleInputChange}
-            placeholder='URL(optional) - Twitter, LinkedIn, Portfolio, Etc. *Inclued http://'
+            placeholder='URL - http:// Twitter, LinkedIn, Portfolio, Etc.'
             value={this.state.url}
           />
+          <p style={{ fontSize: '14px' }}>
+            *URL is optional. Will be linked to your name on your share.
+          </p>
           <button>{this.state.buttonText}</button>
           {this.state.error ? <Error>{this.state.error}</Error> : null}
         </Form>
@@ -129,6 +132,7 @@ const Form = styled.form`
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding: 0 10px;
   width: 100%;
   input {
     background: #e9e9e9;

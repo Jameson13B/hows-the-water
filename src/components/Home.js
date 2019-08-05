@@ -107,6 +107,7 @@ const Body = styled.div`
   height: 100%
   margin-top: 14vh;
   max-width: 550px;
+  padding: 0 15px;
 `
 const Image = styled.img`
   max-height: 250px;

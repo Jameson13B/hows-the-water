@@ -67,7 +67,7 @@ class See extends Component {
                   <Book color={getTagColor(share.book)}>{share.book}</Book>
                   <Date>{formatDateString(share.date, 'MMMM Do YYYY')}</Date>
                 </MessageInfo>
-                <hr style={{ borderColor: '#282c34', width: '400px' }} />
+                <hr style={{ borderColor: '#282c34', width: '375px' }} />
               </div>
             )
           })}
@@ -88,12 +88,14 @@ const Body = styled.div`
 const Message = styled.p`
   line-height: 1.5;
   margin-bottom: 0;
+  padding: 0 15px;
   text-align: left;
 `
 const MessageInfo = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
+  padding: 0 15px;
 `
 const Who = styled.div`
   align-items: center;
