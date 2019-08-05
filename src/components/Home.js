@@ -105,7 +105,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%
-  margin-top: 12vh;
+  margin-top: 14vh;
   max-width: 550px;
 `
 const Image = styled.img`

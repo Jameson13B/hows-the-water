@@ -39,23 +39,37 @@ class Header extends Component {
 export default Header
 
 const HeaderContainer = styled.header`
-  align-items: center;
-  background-color: #282c34;
+  background-color: transparent;
   color: white;
   display: flex;
   flex-direction: column;
   font-size: 1.5em;
-  justify-content: center;
-  height: ${props => (props.small ? '8vh' : '12vh')};
   position: fixed;
   top: 0;
   width: 100%;
 `
 const Title = styled(Link)`
-  color: white;
-  font-size: ${props => (props.small ? '2em' : '2.5em')};
+  background: ${props =>
+    props.small === 'true'
+      ? 'linear-gradient(270deg, #9fddff, #10abff)'
+      : 'transparent'};
+  background-size: 400% 400%;
+  border-radius: 15px;
+  color: #282c34;
+  font-size: ${props => (props.small === 'true' ? '24px' : '72px')};
+  margin: ${props => (props.small === 'true' ? '5px auto' : '20px auto')};
+  padding: 15px;
   text-decoration: none;
+  -webkit-animation: AnimationName 17s ease infinite;
+  -moz-animation: AnimationName 17s ease infinite;
+  animation: AnimationName 17s ease infinite;
   :hover {
     font-weight: 600;
+  }
+  @media (max-width: 768px) {
+    font-size: ${props => (props.small === 'true' ? '24px' : '48px')};
+  }
+  @media (max-width: 400px) {
+    font-size: ${props => (props.small === 'true' ? '24px' : '36px')};
   }
 `
