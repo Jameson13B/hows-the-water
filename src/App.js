@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Route, Switch } from 'react-router-dom'
-import CallToAction from './Components/CallToAction'
-import Home from './Components/Home'
+import CallToAction from './components/CallToAction'
+import Home from './components/Home'
+import ErrorPage from './components/ErrorPage'
 // import See from './Components/See'
 // import Share from './Components/Share'
-import ErrorPage from './Components/ErrorPage'
 
 const App = () => {
   useEffect(() => {
