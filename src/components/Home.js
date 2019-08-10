@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from './node_modules/react'
-import styled from './node_modules/styled-components'
-import { Link } from './node_modules/react-router-dom'
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { db } from '../Firebase'
 import { capitalize } from '../utils'
 
