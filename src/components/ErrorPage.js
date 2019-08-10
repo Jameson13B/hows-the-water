@@ -8,8 +8,8 @@ const ErrorPage = props => {
       <Cta>404</Cta>
       <Message>Oops, it looks like you have swam into bad water.</Message>
       <ButtonContainer>
-        <BackButton onClick={() => props.history.goBack()}>Go Back</BackButton>
-        <HomeLink to='/'>Go to Homepage</HomeLink>
+        <BackButton onClick={() => props.history.goBack()}>Back</BackButton>
+        <HomeLink to='/'>Home</HomeLink>
       </ButtonContainer>
     </Body>
   )
@@ -26,11 +26,13 @@ const Body = styled.div`
   max-width: 550px;
 `
 const Cta = styled.h1`
+  color: black;
   font-size: 20em;
   line-height: 100%;
   margin: 15px 0 0;
 `
 const Message = styled.h1`
+  color: black;
   margin-top: 15px;
 `
 const ButtonContainer = styled.div`
@@ -40,29 +42,27 @@ const ButtonContainer = styled.div`
 `
 const HomeLink = styled(Link)`
   background: #e9e9e9;
-  border: 1px solid #282c34;
   border-radius: 10px;
   color: #282c34;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 1.5em;
   padding: 10px;
   text-decoration: none;
   width: 30%;
   :hover {
-    background: lightgreen;
+    background: #1177e2;
   }
 `
 const BackButton = styled.button`
   background: #e9e9e9;
-  border: 1px solid #282c34;
   border-radius: 10px;
   color: #282c34;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 1.5em;
   padding: 10px;
   text-decoration: none;
   width: 30%;
   :hover {
-    background: lightgreen;
+    background: #1177e2;
   }
 `
