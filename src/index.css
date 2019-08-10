@@ -22,6 +22,26 @@ code {
   box-sizing: border-box;
 }
 
+.geosuggest__suggests--hidden {
+  max-height: 0;
+  overflow: hidden;
+  border-width: 0 !important;
+}
+
+.geosuggest__item--active {
+  background: #267dc0;
+  color: #fff;
+}
+
+.customGeoStyle {
+  position: relative;
+  width: 100%;
+}
+
+/* .geosuggest__suggests-wrapper {
+  width: 100%;
+} */
+
 /* Animations for Gradient Background */
 @-webkit-keyframes AnimationName {
   0% {
