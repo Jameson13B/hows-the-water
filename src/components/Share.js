@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { db, Timestamp } from '../Firebase'
 import { lowercase } from '../utils'
+import Geoselect from './Geoselect'
 
 class Share extends Component {
   constructor(props) {
@@ -60,6 +61,7 @@ class Share extends Component {
       )
     this.props.history.push('/see')
   }
+  onSuggestSelect = suggest => this.setState({ location: suggest.label })
 
   render() {
     let share = {
@@ -72,11 +74,28 @@ class Share extends Component {
     }
     return (
       <Body>
-        <h1>Thanks for Sharing</h1>
+        <h1 style={{ marginBottom: 15 }}>Thanks for Sharing</h1>
         <Form
           onSubmit={e => this.handleSendPost(e, share)}
           background={this.state.buttonColor}
+          autoComplete='off'
         >
+          <input
+            name='name'
+            onChange={this.handleInputChange}
+            placeholder='Name'
+            value={this.state.name}
+          />
+          <Geoselect onSuggestSelect={this.onSuggestSelect} />
+          <input
+            name='url'
+            onChange={this.handleInputChange}
+            placeholder='URL - Twitter, LinkedIn, Portfolio, Etc.'
+            value={this.state.url}
+          />
+          <p style={{ fontSize: '14px', marginBottom: 0 }}>
+            *URL is optional. Will be linked to your name on your share.
+          </p>
           <input
             name='book'
             onChange={this.handleInputChange}
@@ -89,27 +108,6 @@ class Share extends Component {
             placeholder='Enter your thoughts, feelings, advice, etc...'
             value={this.state.message}
           />
-          <input
-            name='name'
-            onChange={this.handleInputChange}
-            placeholder='Name'
-            value={this.state.name}
-          />
-          <input
-            name='location'
-            onChange={this.handleInputChange}
-            placeholder='Location - City, ST'
-            value={this.state.location}
-          />
-          <input
-            name='url'
-            onChange={this.handleInputChange}
-            placeholder='URL - http:// Twitter, LinkedIn, Portfolio, Etc.'
-            value={this.state.url}
-          />
-          <p style={{ fontSize: '14px' }}>
-            *URL is optional. Will be linked to your name on your share.
-          </p>
           <button>{this.state.buttonText}</button>
           {this.state.error ? <Error>{this.state.error}</Error> : null}
         </Form>
@@ -122,9 +120,9 @@ export default Share
 
 const Body = styled.div`
   align-items: center;
+  color: #282c34;
   display: flex;
   flex-direction: column;
-  margin-top: 12vh;
   max-width: 500px;
   width: 100%;
 `
@@ -172,12 +170,13 @@ const Form = styled.form`
   }
   button {
     background: ${props => props.background};
-    border: 1px solid #282c34;
+    border: 5px solid white;
     border-radius: 10px;
+    box-shadow: 0 0 0 3px #282c34;
     color: #282c34;
     cursor: pointer;
     font-size: 1em;
-    margin: 20px 0 0;
+    margin: 20px 0;
     padding: 10px;
     transition: 0.3s;
     width: 45%;

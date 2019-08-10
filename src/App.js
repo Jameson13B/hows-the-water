@@ -4,8 +4,8 @@ import { Route, Switch } from 'react-router-dom'
 import CallToAction from './components/CallToAction'
 import Home from './components/Home'
 import ErrorPage from './components/ErrorPage'
-// import See from './Components/See'
-// import Share from './Components/Share'
+// import See from './components/See'
+import Share from './components/Share'
 
 const App = () => {
   useEffect(() => {
@@ -31,7 +31,7 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={Home} />
         {/* <Route exact path='/see' component={See} /> */}
-        {/* <Route exact path='/share' component={Share} /> */}
+        <Route exact path='/share' component={Share} />
         <Route component={ErrorPage} />
       </Switch>
     </AppContainer>
