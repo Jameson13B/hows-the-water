@@ -27,13 +27,13 @@ const Home = props => {
       <h1>How's the Water Project</h1>
       <Paragraph>
         After my first time reading<span> This is Water</span>, I knew I wanted
-        to share it with others. After spending time talking about the book and
-        recommending it as much as possible, I came up with the
+        to share it with others. I had spent some time talking about the book
+        and recommending it as much as possible when I came up with the
         <i> How's the Water Project</i>. I started by purchasing five hardcover
         copies of the book, wrote a message on the inside of each, and created
         this website.
       </Paragraph>
-      <hr />
+      <br />
       <Paragraph>
         Those five books were given to friends with simple instructions. Read
         the book, share on the website, and give the book to someone else.
@@ -72,7 +72,7 @@ const Body = styled.div`
 `
 const Paragraph = styled.p`
   color: #282c34;
-  font-size: 1.25em;
+  font-size: 1em;
   margin: 0;
   span {
     font-weight: bold;
@@ -95,6 +95,7 @@ const LocationBtn = styled(Link)`
   box-shadow: 0 0 0 3px #282c34;
   color: #282c34;
   cursor: pointer;
+  font-size: 0.8em;
   font-weight: 600;
   padding: 20px;
   margin-top: 20px;
