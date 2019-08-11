@@ -8,13 +8,12 @@ export const capitalize = string =>
 export const lowercase = string =>
   string.charAt(0).toLowerCase() + string.slice(1)
 
-export const getTagColor = book => {
-  let color
-  db.collection('books')
-    .doc(book)
+export const getTagColor = async book => {
+  const doc = await db
+    .collection('books')
+    .doc(lowercase(book))
     .get()
-    .then(doc => doc.data())
-  return color
+  return doc.data().color
 }
 
 export const filterByBook = (share, selectedBook) => {

@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import CallToAction from './components/CallToAction'
 import Home from './components/Home'
 import ErrorPage from './components/ErrorPage'
-// import See from './components/See'
+import See from './components/See'
 import Share from './components/Share'
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
     const cta = document.querySelector('#callToAction')
     const body = document.querySelector('body')
 
-    cta.style.top = '-100%'
+    cta.style.top = '-115%'
     body.style.overflow = 'auto'
     sessionStorage.htwVisited = !sessionStorage.htwVisited
   }
@@ -30,7 +30,7 @@ const App = () => {
       ) : null}
       <Switch>
         <Route exact path='/' component={Home} />
-        {/* <Route exact path='/see' component={See} /> */}
+        <Route exact path='/see' component={See} />
         <Route exact path='/share' component={Share} />
         <Route component={ErrorPage} />
       </Switch>

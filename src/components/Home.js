@@ -90,7 +90,7 @@ const LocBtnContainer = styled.div`
 `
 const LocationBtn = styled(Link)`
   background: #e9e9e9;
-  border: 5px solid white;
+  border: ${props => `5px solid ${props.btncolor}`};
   border-radius: 10px;
   box-shadow: 0 0 0 3px #282c34;
   color: #282c34;
@@ -104,10 +104,12 @@ const LocationBtn = styled(Link)`
   width: 80%;
   :hover {
     background: ${props => props.btncolor};
+    border: 5px solid white;
     color: white;
   }
   @media (max-width: 768px) {
     background: ${props => props.btncolor};
+    border: 5px solid white;
     color: white;
     width: 100%;
   }
