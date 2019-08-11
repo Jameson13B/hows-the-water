@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import { db } from './Firebase'
 
 export const capitalize = string =>
   string.charAt(0).toUpperCase() + string.slice(1)
@@ -7,16 +8,14 @@ export const capitalize = string =>
 export const lowercase = string =>
   string.charAt(0).toLowerCase() + string.slice(1)
 
-export const getTagColor = book =>
-  book === 'Alpha'
-    ? '#440077'
-    : book === 'Bravo'
-    ? '#b14bfa'
-    : book === 'Charlie'
-    ? '#24a302'
-    : book === 'Delta'
-    ? '#62e63e'
-    : '#9f8909'
+export const getTagColor = book => {
+  let color
+  db.collection('books')
+    .doc(book)
+    .get()
+    .then(doc => doc.data())
+  return color
+}
 
 export const filterByBook = (share, selectedBook) => {
   if (selectedBook === 'all') return true

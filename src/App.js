@@ -49,8 +49,7 @@ const AppContainer = styled.div`
 `
 
 // To do list:
-// Refactor See and Share Views
-// Create format validation on form:
-// Books: capitalize and one of three books
-// Location: format
-// URL: starts with http://
+// Refactor See views
+// Create pop up menu w/ home, see, share, about buttons
+// Create about book and about Jameson button on home and about views
+// Test and tweak getTagColor util
