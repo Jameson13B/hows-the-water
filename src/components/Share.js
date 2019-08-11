@@ -20,11 +20,15 @@ class Share extends Component {
   }
 
   handleInputChange = e => this.setState({ [e.target.name]: e.target.value })
+  onSuggestSelect = suggest => this.setState({ location: suggest.label })
   validateForm = () => {
-    const { book, message, name, location } = this.state
-    return !book || !message || !name || !location
-      ? 'Book, message, name, and location required'
-      : null
+    const { book, message, name, location, url } = this.state
+    const regex = new RegExp('^(https?://)+')
+    if (!book || !message || !name || !location)
+      return 'Name, location, book, and message required'
+    if (book === 'Select your books name')
+      if (!regex.test(url)) return 'URL must start with http:// or https://'
+    return null
   }
   handleSendPost = (e, share) => {
     e.preventDefault()
@@ -61,7 +65,6 @@ class Share extends Component {
       )
     this.props.history.push('/see')
   }
-  onSuggestSelect = suggest => this.setState({ location: suggest.label })
 
   render() {
     let share = {
@@ -96,20 +99,26 @@ class Share extends Component {
           <p style={{ fontSize: '14px', marginBottom: 0 }}>
             *URL is optional. Will be linked to your name on your share.
           </p>
-          <input
+          <select
             name='book'
             onChange={this.handleInputChange}
-            placeholder='Book - Alpha, Bravo, Charlie, Delta, Echo'
             value={this.state.book}
-          />
+          >
+            <option value={null}>Select your books codename</option>
+            <option value='pacific'>Pacific</option>
+            <option value='atlantic'>Atlantic</option>
+            <option value='indian'>Indian</option>
+            <option value='artic'>Artic</option>
+            <option value='southern'>Southern</option>
+          </select>
           <textarea
             name='message'
             onChange={this.handleInputChange}
             placeholder='Enter your thoughts, feelings, advice, etc...'
             value={this.state.message}
           />
-          <button>{this.state.buttonText}</button>
           {this.state.error ? <Error>{this.state.error}</Error> : null}
+          <button>{this.state.buttonText}</button>
         </Form>
       </Body>
     )
@@ -137,7 +146,7 @@ const Form = styled.form`
     border: 1px solid #282c34;
     border-radius: 10px;
     color: #282c34;
-    font-size: 1em;
+    font-size: .7em;
     margin: 20px 0 0;
     padding: 10px;
     transition: 0.3s
@@ -149,12 +158,34 @@ const Form = styled.form`
       background: #d5d5d0;
     }
   }
+  select {
+    appearance: none;
+    background-color: #e9e9e9;
+	  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+    border: 1px solid #282c34;
+    border-radius: 10px;
+    color: #282c34;
+    font-size: .7em;
+    margin: 20px 0 0;
+    padding: 10px;
+    transition: 0.3s
+    width: 100%;
+    :hover {
+      background-color: #d5d5d5;
+    }
+    :focus {
+      background-color: #d5d5d0;
+    }
+  }
   textarea {
     background: #e9e9e9;
     border: 1px solid #282c34;
     border-radius: 10px;
     color: #282c34;
-    font-size: 1em;
+    font-size: .7em;
     height: 20em;
     margin: 20px 0 0;
     padding: 10px;
@@ -187,6 +218,8 @@ const Form = styled.form`
 `
 const Error = styled.p`
   color: red;
-  font-weight: 700;
+  font-size: 0.75em;
   font-style: italic;
+  font-weight: 700;
+  margin: 20px 0 0 0;
 `
