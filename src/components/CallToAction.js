@@ -9,9 +9,7 @@ const CallToAction = props => {
     <Body id='callToAction'>
       <Image src={howsTheWater} alt='hows the water comic' />
       <Title>How's the Water?</Title>
-      <Icon onClick={onEnterSiteClick} className='material-icons'>
-        arrow_downward
-      </Icon>
+      <Button onClick={onEnterSiteClick}>Enter</Button>
     </Body>
   )
 }
@@ -45,10 +43,10 @@ const Title = styled.h1`
     font-size: 3em;
   }
 `
-const Icon = styled.i`
+const Button = styled.button`
+  background: transparent;
+  border: 0;
+  color: white;
   cursor: pointer;
-  font-size: 4em;
-  :hover {
-    color: #0a0e27;
-  }
+  font-size: 1.5em;
 `
