@@ -55,6 +55,7 @@ const HomeLink = styled(Link)`
 `
 const BackButton = styled.button`
   background: #e9e9e9;
+  border: none;
   border-radius: 10px;
   color: #282c34;
   cursor: pointer;
