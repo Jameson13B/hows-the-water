@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { db } from '../Firebase'
-import {
-  capitalize,
-  getTagColor,
-  filterByBook,
-  formatDateString
-} from '../utils'
+import { capitalize, lowercase, filterByBook, formatDateString } from '../utils'
 
 class See extends Component {
   constructor(props) {
     super(props)
     this.state = {
       shares: [],
+      colorChart: {
+        artic: '#1ab394',
+        atlantic: '#f8ac59',
+        indian: '#23c6c8',
+        pacific: '#ed5565',
+        southern: '#1c84c6'
+      },
       book: this.props.location.state ? this.props.location.state.book : 'all'
     }
   }
@@ -35,7 +37,10 @@ class See extends Component {
 
     return (
       <Body>
-        <h1>See {capitalize(book) || 'All'}</h1>
+        <h1 style={{ marginBottom: 0 }}>See {capitalize(book) || 'All'}</h1>
+        <SeeAllButton onClick={() => this.setState({ book: 'all' })}>
+          See All
+        </SeeAllButton>
         {shares
           // filter by book if a book is selected
           .filter(share => filterByBook(share, book))
@@ -64,10 +69,15 @@ class See extends Component {
                       </p>
                     </Who>
                   )}
-                  <Book btnColor={getTagColor(share.book)}>{share.book}</Book>
+                  <Book
+                    onClick={() => this.setState({ book: share.book })}
+                    btnColor={this.state.colorChart[lowercase(share.book)]}
+                  >
+                    {share.book}
+                  </Book>
                   <Date>{formatDateString(share.date, 'MMMM Do YYYY')}</Date>
                 </MessageInfo>
-                <hr style={{ borderColor: '#282c34', width: '375px' }} />
+                <hr style={{ borderColor: '#282c34', width: '450px' }} />
               </div>
             )
           })}
@@ -83,7 +93,15 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 550px;
+  max-width: 600px;
+`
+const SeeAllButton = styled.button`
+  background: lightgray;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.55em;
+  margin: 0;
 `
 const Message = styled.p`
   font-size: 0.9em;
@@ -97,19 +115,40 @@ const MessageInfo = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 15px;
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `
 const Who = styled.div`
   align-items: center;
   display: flex;
+  @media (max-width: 600px) {
+    justify-content: center;
+    width: 100%;
+    p {
+      margin: 10px 0 5px 0;
+    }
+  }
 `
 const Book = styled.p`
   background: ${props => props.btnColor}}
   border: ${props => `1px solid ${props.btnColor}`}
   border-radius: 15px;
-  font-size: .8em;
+  cursor: pointer;
+  font-size: .7em;
   font-weight: bold;
-  padding: 1px 3px;
+  padding: 1px 5px;
+  @media (max-width: 600px) {
+    margin-top: 0;
+  }
 `
 const Date = styled.p`
   font-style: italic;
+  font-size: 0.8em;
+  @media (max-width: 600px) {
+    justify-content: center;
+    margin-left: 10px;
+    margin-top: 0;
+  }
 `
