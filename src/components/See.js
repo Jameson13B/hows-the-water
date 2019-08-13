@@ -53,14 +53,16 @@ class See extends Component {
                   {/* If the share has a URL, return link, else return p */}
                   {share.url ? (
                     <Who>
-                      <a
-                        href={share.url}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                      >
-                        <b>{share.name}</b>
-                      </a>
-                      <p> - {share.location}</p>
+                      <p>
+                        <a
+                          href={share.url}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                        >
+                          <b>{share.name}</b>
+                        </a>{' '}
+                        - {share.location}
+                      </p>
                     </Who>
                   ) : (
                     <Who>
