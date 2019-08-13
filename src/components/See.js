@@ -9,7 +9,7 @@ class See extends Component {
     this.state = {
       shares: [],
       colorChart: {
-        artic: '#1ab394',
+        arctic: '#1ab394',
         atlantic: '#f8ac59',
         indian: '#23c6c8',
         pacific: '#ed5565',

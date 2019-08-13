@@ -49,7 +49,5 @@ const AppContainer = styled.div`
 `
 
 // To do list:
-// Refactor See views
-// Create pop up menu w/ home, see, share, about buttons
-// Create about book and about Jameson button on home and about views
-// Test and tweak getTagColor util
+// Create pop up menu or menu below title w/ dynamic (home, see, share, about*) buttons
+// *Create about book and about Jameson view
