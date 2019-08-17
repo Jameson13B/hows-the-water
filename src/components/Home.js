@@ -48,7 +48,7 @@ const Home = props => {
                   btncolor={location.color}
                   to={{ pathname: '/see', state: { book: capitalize(book) } }}
                 >
-                  {capitalize(book)} : {location.current}
+                  {capitalize(book)}: {location.current}
                 </LocationBtn>
               )
             })
@@ -65,6 +65,7 @@ const Body = styled.div`
   color: #282c34;
   display: flex;
   flex-direction: column;
+  margin-bottom: 65px
   padding: 15px;
   position: absolute;
   top: 0;

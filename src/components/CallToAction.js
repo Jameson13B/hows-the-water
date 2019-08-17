@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import howsTheWater from '../images/hows_the_water.png'
 
 const CallToAction = props => {
   const { onEnterSiteClick } = props
+
+  useEffect(() => {
+    sessionStorage.htwVisited = true
+  }, [])
 
   return (
     <Body id='callToAction'>

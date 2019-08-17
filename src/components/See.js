@@ -91,10 +91,11 @@ class See extends Component {
 export default See
 
 const Body = styled.div`
+  align-items: center;
   color: #282c34;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-bottom: 65px
   max-width: 600px;
 `
 const SeeAllButton = styled.button`
