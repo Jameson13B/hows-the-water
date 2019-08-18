@@ -134,13 +134,13 @@ const Body = styled.div`
   flex-direction: column;
   margin-bottom: 65px
   max-width: 500px;
+  padding: 15px;
   width: 100%;
 `
 const Form = styled.form`
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 0 10px;
   width: 100%;
   input {
     background: #e9e9e9;

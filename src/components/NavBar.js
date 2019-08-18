@@ -14,7 +14,7 @@ const NavBar = () => {
       <NavItem to='/share'>
         <i class='material-icons'>create</i>Share
       </NavItem>
-      <NavItem to='/'>
+      <NavItem to='/about'>
         <i class='material-icons'>help_outline</i>About
       </NavItem>
     </Container>

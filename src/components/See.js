@@ -138,6 +138,7 @@ const Book = styled.p`
   background: ${props => props.btnColor}}
   border: ${props => `1px solid ${props.btnColor}`}
   border-radius: 15px;
+  color: white;
   cursor: pointer;
   font-size: .7em;
   font-weight: bold;

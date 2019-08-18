@@ -7,6 +7,7 @@ import ErrorPage from './components/ErrorPage'
 import See from './components/See'
 import Share from './components/Share'
 import NavBar from './components/NavBar'
+import About from './components/About'
 
 class App extends React.Component {
   constructor(props) {
@@ -51,6 +52,7 @@ class App extends React.Component {
           <Route exact path='/' component={Home} />
           <Route exact path='/see' component={See} />
           <Route exact path='/share' component={Share} />
+          <Route exact path='/about' component={About} />
           <Route component={ErrorPage} />
         </Switch>
         <NavBar />
@@ -68,6 +70,3 @@ const AppContainer = styled.div`
   text-align: center;
   font-size: 1.25em;
 `
-
-// To do list:
-// Create about book and about Jameson view
