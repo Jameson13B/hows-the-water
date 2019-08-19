@@ -9,15 +9,6 @@ import Share from './components/Share'
 import NavBar from './components/NavBar'
 import About from './components/About'
 
-import ReactGA from 'react-ga'
-function initializeReactGA() {
-  ReactGA.initialize('UA-145443680-1')
-  ReactGA.pageview('/')
-  ReactGA.pageview('/see')
-  ReactGA.pageview('/share')
-  ReactGA.pageview('/about')
-}
-
 class App extends React.Component {
   constructor(props) {
     super(props)
