@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { GAEvent } from '../utils/utils'
 
 const About = props => {
   return (
@@ -41,6 +42,7 @@ const About = props => {
       </Paragraph>
       <a
         href='https://www.jamesonb.com'
+        onClick={() => GAEvent('Link', 'Clicked Profile Link')}
         rel='noopener noreferrer'
         style={{ marginTop: 15 }}
         target='_blank'

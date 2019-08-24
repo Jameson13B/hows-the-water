@@ -5,7 +5,8 @@ import {
   capitalize,
   lowercase,
   filterByBook,
-  formatDateString
+  formatDateString,
+  GAEvent
 } from '../utils/utils'
 
 class See extends Component {
@@ -77,7 +78,10 @@ class See extends Component {
                     </Who>
                   )}
                   <Book
-                    onClick={() => this.setState({ book: share.book })}
+                    onClick={() => {
+                      GAEvent('Tag', `Click ${share.book}`)
+                      this.setState({ book: share.book })
+                    }}
                     btnColor={this.state.colorChart[lowercase(share.book)]}
                   >
                     {share.book}

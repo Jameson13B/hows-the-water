@@ -44,7 +44,14 @@ const init = () =>
     ? ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID)
     : false
 
-export const GAEvent = (category, action) => {
+export const GAEvent = (category, action, label) => {
+  if (label) {
+    ReactGA.event({
+      category,
+      action,
+      label
+    })
+  }
   ReactGA.event({
     category,
     action
