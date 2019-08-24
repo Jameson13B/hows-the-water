@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { db } from '../Firebase'
-import { capitalize, lowercase, filterByBook, formatDateString } from '../utils'
+import {
+  capitalize,
+  lowercase,
+  filterByBook,
+  formatDateString
+} from '../utils/utils'
 
 class See extends Component {
   constructor(props) {

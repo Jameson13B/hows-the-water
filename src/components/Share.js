@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { db, Timestamp } from '../Firebase'
-import { lowercase } from '../utils'
+import { lowercase } from '../utils/utils'
 import Geoselect from './Geoselect'
 
 class Share extends Component {

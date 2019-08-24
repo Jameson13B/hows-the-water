@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { db } from '../Firebase'
-import { capitalize } from '../utils'
+import { capitalize } from '../utils/utils'
 
 const Home = props => {
   const [locations, setLocations] = useState()
