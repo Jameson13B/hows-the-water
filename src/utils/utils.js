@@ -40,8 +40,8 @@ export const personalSignature = () => {
 const RouteTracker = () => <Route component={GoogleAnalytics} />
 
 const init = () =>
-  REACT_APP_GA_TRACKING_ID
-    ? ReactGA.initialize(REACT_APP_GA_TRACKING_ID)
+  process.env.REACT_APP_GA_TRACKING_ID
+    ? ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID)
     : false
 
 export const GAEvent = (category, action) => {
