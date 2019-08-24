@@ -37,21 +37,18 @@ export const personalSignature = () => {
 }
 
 // Google Analytics Utils
-// GA.initialize('UA-145443680-1')
 const RouteTracker = () => <Route component={GoogleAnalytics} />
 
-const init = (options = {}) => {
-  const env = window._env_ || {}
-  const isGAEnabled = !!env.REACT_APP_GA_TRACKING_ID
+const init = () =>
+  REACT_APP_GA_TRACKING_ID
+    ? ReactGA.initialize(REACT_APP_GA_TRACKING_ID)
+    : false
 
-  if (isGAEnabled) {
-    ReactGA.initialize(env.REACT_APP_GA_TRACKING_ID, {
-      debug: env.REACT_APP_GA_DEBUG === 'true',
-      ...options
-    })
-  }
-
-  return isGAEnabled
+export const GAEvent = (category, action) => {
+  ReactGA.event({
+    category,
+    action
+  })
 }
 
 export default {
