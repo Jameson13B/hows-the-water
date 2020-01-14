@@ -6,16 +6,16 @@ const NavBar = () => {
   return (
     <Container id='navBar'>
       <NavItem to='/'>
-        <i class='material-icons'>home</i>Home
+        <i className='material-icons'>home</i>Home
       </NavItem>
       <NavItem to='/see'>
-        <i class='material-icons'>all_inbox</i>See
+        <i className='material-icons'>all_inbox</i>See
       </NavItem>
       <NavItem to='/share'>
-        <i class='material-icons'>create</i>Share
+        <i className='material-icons'>create</i>Share
       </NavItem>
       <NavItem to='/about'>
-        <i class='material-icons'>help_outline</i>About
+        <i className='material-icons'>help_outline</i>About
       </NavItem>
     </Container>
   )
