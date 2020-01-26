@@ -6,18 +6,18 @@ const About = props => {
     <Container>
       <h2>About the Project</h2>
       <Paragraph>
-        The <i>How's the Water Project</i> started in August 2019 with the goal
+        The <i>How's the Water Project</i> started in January 2020 with the goal
         of sharing a powerful message and influencing others in the best way
         possible. Created by Jameson Brown and contributed to by amazing people
         around the world. Check back often for inspiration and keep living a
         compassionate life. For those that have recieved one of the books from
         this project, the instructions are simple.
-        <ol>
-          <li>Treat yourself and read the book</li>
-          <li>Share your thoughts and feelings on the website</li>
-          <li>Give the book to another awesome person</li>
-        </ol>
       </Paragraph>
+      <ol>
+        <li>Treat yourself and read the book</li>
+        <li>Share your thoughts and feelings on the website</li>
+        <li>Give the book to another awesome person</li>
+      </ol>
       <h2>About the Book</h2>
       <Paragraph>
         Only once did David Foster Wallace give a public talk on his views on
@@ -61,6 +61,13 @@ const Container = styled.div`
   margin-bottom: 95px;
   max-width: 600px;
   padding: 15px;
+  ol {
+    font-weight: 600;
+    margin: 15px auto 0;
+    max-width: 400px;
+    min-width: 400px;
+    width: 100%;
+  }
 `
 const Paragraph = styled.p`
   color: #282c34;
@@ -71,11 +78,5 @@ const Paragraph = styled.p`
   }
   i {
     font-weight: 600;
-  }
-  ol {
-    font-weight: 600;
-    margin: 15px auto 0;
-    min-width: 400px;
-    width: 65%;
   }
 `
