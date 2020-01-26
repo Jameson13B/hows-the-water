@@ -102,7 +102,7 @@ const Body = styled.div`
   color: #282c34;
   display: flex;
   flex-direction: column;
-  margin-bottom: 65px
+  margin-bottom: 75px;
   max-width: 600px;
 `
 const SeeAllButton = styled.button`
@@ -123,43 +123,37 @@ const Message = styled.p`
 const MessageInfo = styled.div`
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 0.9em;
+  justify-content: center;
   padding: 0 15px;
-  @media (max-width: 600px) {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 `
 const Who = styled.div`
   align-items: center;
   display: flex;
-  @media (max-width: 600px) {
-    justify-content: center;
-    width: 100%;
-    p {
-      margin: 10px 0 5px 0;
-    }
+  width: 100%;
+  justify-content: center;
+  p {
+    margin: 10px 0 5px 0;
   }
 `
 const Book = styled.p`
-  background: ${props => props.btnColor}}
-  border: ${props => `1px solid ${props.btnColor}`}
+  background: ${props => props.btnColor}};
+  border: ${props => `1px solid ${props.btnColor}`};
   border-radius: 15px;
   color: white;
   cursor: pointer;
-  font-size: .7em;
+  font-size: 0.7em;
   font-weight: bold;
+  margin-bottom: 0;
+  margin-top: 0;
   padding: 1px 5px;
-  @media (max-width: 600px) {
-    margin-top: 0;
-  }
 `
 const Date = styled.p`
   font-style: italic;
   font-size: 0.8em;
-  @media (max-width: 600px) {
-    justify-content: center;
-    margin-left: 10px;
-    margin-top: 0;
-  }
+  justify-content: center;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-top: 0;
 `

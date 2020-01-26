@@ -65,7 +65,7 @@ const Body = styled.div`
   color: #282c34;
   display: flex;
   flex-direction: column;
-  margin-bottom: 65px
+  margin-bottom: 70px;
   padding: 15px;
   position: absolute;
   top: 0;

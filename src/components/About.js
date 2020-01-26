@@ -58,7 +58,7 @@ const Container = styled.div`
   color: #282c34;
   display: flex;
   flex-direction: column;
-  margin-bottom: 90px
+  margin-bottom: 95px;
   max-width: 600px;
   padding: 15px;
 `
