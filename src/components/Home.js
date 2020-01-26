@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { db } from '../Firebase'
 import { capitalize } from '../utils/utils'
-import { GAEvent } from '../utils/utils'
 
 const Home = props => {
   const [locations, setLocations] = useState()
@@ -48,7 +47,6 @@ const Home = props => {
                   key={book}
                   btncolor={location.color}
                   to={{ pathname: '/see', state: { book: capitalize(book) } }}
-                  onClick={() => GAEvent('Book Button', `Clicked ${book}`)}
                 >
                   {capitalize(book)}: {location.current}
                 </LocationBtn>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { db, Timestamp } from '../Firebase'
-import { lowercase, GAEvent } from '../utils/utils'
+import { lowercase } from '../utils/utils'
 import Geoselect from './Geoselect'
 
 class Share extends Component {
@@ -32,11 +32,6 @@ class Share extends Component {
   }
   handleSendPost = (e, share) => {
     e.preventDefault()
-    GAEvent(
-      'Share',
-      `Clicked Share`,
-      `New share from ${share.name} on ${share.book}`
-    )
     const error = this.validateForm()
     if (error) return this.setState({ error })
     this.setState({ buttonText: 'Sending...', buttonColor: 'lightgreen' })

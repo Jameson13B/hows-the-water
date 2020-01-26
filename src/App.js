@@ -34,7 +34,6 @@ class App extends React.Component {
     this.setState({ visited: true })
     let cta = document.querySelector('#callToAction')
     let navBar = document.querySelector('#navBar')
-    console.log(navBar)
     let body = document.querySelector('body')
 
     cta.style.top = '-9999px'
